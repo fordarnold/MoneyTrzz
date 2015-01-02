@@ -1,7 +1,7 @@
 # MoneyTrzz
-> Have multiple bank accounts? Keep track of them with ease.
+> Where did your money go this quarter?
 
-This app tries to answer the question "Where did my money go?" as simply as possible. No complicated accounting jargon, no complicated financial diagrams.
+Are you juggling multiple bank accounts, both Personal and for your Business? MoneyTrzz helps you track the movement of your money within your Banks. And it does this while keeping the process simple for you. No complicated accounting jargon. No confusing financial diagrams.  
 Try it out now at [MoneyTrzz.com](http://moneytrzz.com). You won't regret it.
 
 ## Features
