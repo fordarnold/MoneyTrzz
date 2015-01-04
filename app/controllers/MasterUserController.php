@@ -11,7 +11,7 @@ class MasterUserController extends BaseController
      */
     public function getRegister()
     {
-        return View::make('auth.register');
+        return View::make('user.register');
     }
 
     /**
@@ -20,7 +20,7 @@ class MasterUserController extends BaseController
      */
     public function getLogin()
     {
-        return View::make('auth.login');
+        return View::make('user.login');
     }
 
     /**
@@ -145,13 +145,22 @@ class MasterUserController extends BaseController
     }
 
     /**
-     * Logout of the app
+    * Logout Page
+    * @return route Redirect to Login page
+    */
+    public function getLogout()
+    {
+      return View::make('user.logout');
+    }
+
+    /**
+     * Close user sessions
      * @return route Redirect to Login page
      */
-    public function logout()
+    public function doLogout()
     {
         Sentry::logout();
-        return Redirect::to('user/login'); // with message
+        return Redirect::to('/')->with('message', 'You have been logged out. See you later.'); // with message modal overlay
     }
 
 
@@ -230,21 +239,23 @@ class MasterUserController extends BaseController
     }
 
     /**
-     * @method login
-     * $params GET or POST array('email'=> 'email@domain.com', 'password' => 'password')
-     */
-    public function login()
+    * Test function for displaying a User registration form.
+    * @return View Returns a Laravel view
+    */
+    public function getUserCleanup()
     {
-        try {
-            $user = Sentry::authenticate(Input::all(), false);
-            $token = hash('sha256', Str::random(10), false);
-            $user->api_token = $token;
-            $user->save();
+      return View::make('user.delete');
+    }
 
-            return Response::json(array('token' => $token, 'user' => $user->toArray()));
+    /**
+    * Delete user account
+    * @return View Returns a Laravel view
+    */
+    public function postUserCleanup()
+    {
+      // Soft Delete from database
 
-        } catch (Exception $e) {
-            App::abort(404, $e->getMessage());
-        }
+      // redirect to login page
+      return Redirect::to('user/login')->withErrors('Hello');
     }
 }

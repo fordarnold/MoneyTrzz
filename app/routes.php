@@ -24,7 +24,8 @@ Route::get('user/login', 'MasterUserController@getLogin');
 Route::post('user/login', 'MasterUserController@postLogin');
 
 # Logout
-Route::get('user/logout', 'MasterUserController@logout');
+Route::get('user/logout', 'MasterUserController@getLogout');
+Route::get('user/session/close', 'MasterUserController@doLogout');
 
 # Register
 Route::get('user/register', 'MasterUserController@getRegister');
