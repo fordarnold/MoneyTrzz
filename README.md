@@ -1,21 +1,26 @@
 # MoneyTrzz
-> Where did your money go this quarter?
+> Easy money management for you to Get Out of the Rat Race.
 
-Are you juggling multiple bank accounts, both Personal and for your Business? MoneyTrzz helps you track the movement of your money within your Banks. And it does this while keeping the process simple for you. No complicated accounting jargon. No confusing financial diagrams.  
+This app is currently under development.
+
+Keep track of your assets, your bank accounts, and of course your liabilities.  
+
+MoneyTrzz will help you track the inflows and outflows of your money. And it does this while keeping the process simple for you. No complicated accounting jargon. No confusing financial diagrams.  
+
 Try it out now at [MoneyTrzz.com](http://moneytrzz.com). You won't regret it.
 
-## Features
-- Master user account
-- Multiple Business/Company accounts
-- Multiple Bank accounts
+## What does the app give you?
+- A Master user account, with full permissions ;)
+- [Premium] Multiple Business/Company accounts registration
+- [Premium] Multiple Bank accounts registration
 - Categorised bank accounts -> _Personal or Business_, _Savings or Current or Checking_
-- Deposits
-- Withdrawals
-- Bank charges
-- Bank account statements, filtered by Quarter or Month
-- Aggregate savings, filtered by Quarter or Month
-- Aggregate deposits, filtered by Quarter or Month
-- Aggregate withdrawals, filtered by Quarter or Month
+- Deposits management
+- Withdrawals management
+- Savings management
+- Bank charge management
+- Money Reports, filtered by Quarter/Month
+
+# Enjoy :)
 
 ### License
 This application is open-sourced software licensed under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0)
