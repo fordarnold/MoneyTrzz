@@ -11,6 +11,9 @@
 |
 */
 
+# Landing Page
+Route::get('/', 'HomeController@showWelcome');
+
 /**
  * Auth Routes
  * @author robin hood <fordarnold@gmail.com>
@@ -74,5 +77,5 @@ Route::post('user/register', 'MasterUserController@postRegister');
 	// Testing (errors still)
 	// NOTE: Use resource controllers
 	Route::resource('users', 'UserController@index');
-	Route::resource('users/groups', 'UserGroupController@index')
+	Route::resource('users/groups', 'UserGroupController@index');
 // });
