@@ -7,6 +7,8 @@ Keep track of your assets, your bank accounts, and of course your liabilities.
 
 MoneyTrzz will help you track the inflows and outflows of your money. And it does this while keeping the process simple for you. No complicated accounting jargon. No confusing financial diagrams.  
 
+The way [Github](https://github.com) gives you insight into your code while staying easy to navigate, is the same way __MoneyTrzz wants to give you insight into your Cash flow while staying easy to manage for everyone.__  
+
 Try it out now at [MoneyTrzz.com](http://moneytrzz.com). You won't regret it.
 
 ## What does the app give you?
