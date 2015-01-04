@@ -72,5 +72,7 @@ Route::post('user/register', 'MasterUserController@postRegister');
 	});
 
 	// Testing (errors still)
-	Route::get('users/groups', 'UserController@showWelcome');
+	// NOTE: Use resource controllers
+	Route::resource('users', 'UserController@index');
+	Route::resource('users/groups', 'UserGroupController@index')
 // });
