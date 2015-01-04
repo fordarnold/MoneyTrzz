@@ -62,3 +62,15 @@ Route::post('user/register', 'MasterUserController@postRegister');
 	// Route::post('user/delete', 'MasterUserController@postUserCleanup');
 
 // }
+
+# REST API routes (testing API token auth)
+// Route::group(array('prefix' => 'api', 'before' => 'auth.token'), function() {
+
+	// API token auth test route '/api'
+	Route::get('/', function() {
+		return Response::json(array('success' => 1, 'message' => 'Congratulations, you got a shiny new API token.', 'error' => 0));
+	});
+
+	// Testing (errors still)
+	Route::get('users/groups', 'UserController@showWelcome');
+// });
