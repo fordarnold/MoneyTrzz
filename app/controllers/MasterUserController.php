@@ -1,12 +1,9 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: duma
- * Date: 2014/10/15
- * Time: 9:10 PM
+ * @author robin hood <fordarnold@gmail.com>
  */
-class AuthController extends BaseController
+class MasterUserController extends BaseController
 {
     /**
      * Test function for displaying a User registration form.
@@ -149,27 +146,18 @@ class AuthController extends BaseController
 
     /**
      * Logout of the app
-     * @return json JSON response
+     * @return route Redirect to Login page
      */
     public function logout()
     {
         Sentry::logout();
-        return Redirect::to('user/');
-
-        // Return some json
-        $array = array(
-            'success' => 1,
-            'message' => 'User logged out successfully',
-            'next_action' => 'get route user/login',
-            'error' => 0
-            );
-        return Response::json($array);
+        return Redirect::to('user/login'); // with message
     }
 
 
     /**
     * Displays currently logged-in user
-    * @return json JSON response
+    * @return route Redirect to Login page
     */
     public function getCurrentUser()
     {

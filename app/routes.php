@@ -16,9 +16,11 @@
  * @author robin hood <fordarnold@gmail.com>
  */
 
-# Login, Logout
+# Login
 Route::get('user/login', 'MasterUserController@getLogin');
 Route::post('user/login', 'MasterUserController@postLogin');
+
+# Logout
 Route::get('user/logout', 'MasterUserController@logout');
 
 # Register
@@ -29,13 +31,13 @@ Route::post('user/register', 'MasterUserController@postRegister');
 // Route::group(['before' => 'auth'], function(){
 
 	# Every logged-in user gets to:
-	# 
+	#
 	# Update his/her account
 	Route::get('user/update', 'MasterUserController@getUserUpdate');
 	Route::post('user/update', 'MasterUserController@postUserUpdate');
 
-	# 
-	
+	#
+
 
 // }
 
@@ -43,7 +45,7 @@ Route::post('user/register', 'MasterUserController@postRegister');
 // Route::group(['before' => 'auth|master'], function(){
 
 	# ONLY master users can:
-	# 
+	#
 	# Register user as 'financialmanager'
 	Route::get('user/register/financialmanager', 'OtherUserController@getFinancialManagerRegister');
 	Route::post('user/register/financialmanager', 'OtherUserController@postFinancialManagerRegister');
