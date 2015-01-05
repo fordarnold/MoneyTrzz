@@ -1,5 +1,5 @@
 # MoneyTrzz
-> Easy money management for you to Get Out of the Rat Race.
+> Easy money management to get you out of the Rat Race.
 
 This app is currently under development.
 
