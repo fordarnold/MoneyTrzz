@@ -41,7 +41,7 @@ Route::group(['before' => 'auth'], function(){
 
 	# Check user account details
 	Route::get('users/me', 'MasterUserController@getCurrentUser');
-	
+
 	# Update his/her account
 	Route::get('user/update', 'MasterUserController@getUserUpdate');
 	Route::post('user/update', 'MasterUserController@postUserUpdate');
@@ -63,14 +63,14 @@ Route::group(['before' => 'auth'], function(){
 	Route::get('user/delete', 'MasterUserController@getUserCleanup');
 	Route::post('user/delete', 'MasterUserController@postUserCleanup');
 
-// }
+// });
 
 # Authenticate user as 'financialmanager' before visiting these routes
 // Route::group(['before' => 'auth|financialmanager'], function(){
 
 	// Route::post('user/delete', 'MasterUserController@postUserCleanup');
 
-// }
+// });
 
 # REST API routes (testing API token auth)
 // Route::group(array('prefix' => 'api', 'before' => 'auth.token'), function() {
