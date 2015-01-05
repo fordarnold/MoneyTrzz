@@ -6,13 +6,13 @@
   {{ HTML::style('http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css') }}
 
   <!-- my css -->
-  {{ HTML::style('assets/css/general.css') }}
-  {{ HTML::style('assets/css/helpers.css') }}
-  {{ HTML::style('assets/css/app.css') }}
+  {{ HTML::style('assets/dev/css/general.css') }}
+  {{ HTML::style('assets/dev/css/helpers.css') }}
+  {{ HTML::style('assets/dev/css/app.css') }}
 
   <!-- webfonts enabled -->
   {{ HTML::script('https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js') }}
-  
+
 </head>
 <body>
 

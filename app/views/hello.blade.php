@@ -27,13 +27,15 @@
 		h1, h2, h3{color: #444;}
 
 		h1 {
-			font-size: 32px;
+			font-size: 40px;
 			margin: 16px 0 0 0;
 		}
 
 		h4 {color: limegreen;}
 
-		ul li {list-style: none; padding: 3px 0;}
+		article ul {padding-left: 0;}
+
+		article ul li {list-style: none; padding: 3px 0;}
 
 		.app-name {color: limegreen;}
 
@@ -42,12 +44,11 @@
 </head>
 <body>
 	<div class="welcome">
-		<img src="<?php echo URL::to('public/welcome.jpg') ?>" alt="Easy money management">
 		<h1 class="app-name">Money Trzz</h1>
-		<h3>Easy money management<br>to get you out of Rat Race</h3>
+		<h3 class="app-slogan">Easy money management<br>to get you out of Rat Race</h3>
 
 		<hr>
-		<h4>What do you get?</h4>
+		<h4>What does it give you ?</h4>
 
 		<article>
 			<ul>
@@ -63,7 +64,7 @@
 			</ul>
 
 			<hr>
-			<h3>{{ HTML::link('user/register', 'Try it now !', array('class' => 'button')) }}</h3>
+			<h2>{{ HTML::link('index.php/user/register', 'Try it now !', array('class' => 'button')) }}</h2>
 		</article>
 	</div>
 </body>
