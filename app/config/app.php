@@ -122,6 +122,10 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		'Cartalyst\Sentry\SentryServiceProvider',
+	    'Way\Generators\GeneratorsServiceProvider',
+	    'hisorange\BrowserDetect\Provider\BrowserDetectService',
+
 	),
 
 	/*
@@ -188,6 +192,10 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+
+		'Sentry' 		  	=> 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'BrowserDetect'   	=> 'hisorange\BrowserDetect\Facade\Parser',
+		'Carbon' 		  	=> 'Carbon\Carbon',
 
 	),
 
