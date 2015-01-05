@@ -1,0 +1,79 @@
+<?php
+
+// Composer: "fzaninotto/faker": "v1.3.0"
+use Faker\Factory as Faker;
+
+class SentryTableSeeder extends Seeder {
+
+	public function run()
+	{
+		$faker = Faker::create();
+
+		// Create sample user accounts
+		
+		Sentry::getUserProvider()->create(array(
+	        'email'       => 'master@master.com',
+	        'password'    => "master",
+	        'first_name'  => $faker->firstName,
+	        'last_name'   => $faker->lastName,
+	        'activated'   => 1,
+	    ));
+
+	    Sentry::getUserProvider()->create(array(
+	        'email'       => 'accounts@user.com',
+	        'password'    => "accounts",
+	        'first_name'  => $faker->firstName,
+	        'last_name'   => $faker->lastName,
+	        'activated'   => 1,
+	    ));
+
+	    Sentry::getUserProvider()->create(array(
+	        'email'       => 'user@user.com',
+	        'password'    => "user",
+	        'first_name'  => $faker->firstName,
+	        'last_name'   => $faker->lastName,
+	        'activated'   => 1,
+	    ));
+
+		// Create user groups and permissions
+		
+		Sentry::getGroupProvider()->create(array(
+	        'name'        => 'Master',
+	        'permissions' => array(
+	        	'user.create' => 1,
+	        	'user.view' => 1,
+	        	'user.update' => 1,
+	        	'user.delete' => 1,
+	        	'settings.view' => 1,
+	        	'settings.update' => 1
+	        	),
+	    ));
+
+	    Sentry::getGroupProvider()->create(array(
+	        'name'        => 'Accountant',
+	        'permissions' => array(
+	        	'user.create' => 0,
+	        	'user.view' => 1,
+	        	'user.update' => 1,
+	        	'user.delete' => 0,
+	        	'settings.view' => 0,
+	        	'settings.update' => 0
+	        	),
+	    ));
+
+	    // Assign users to groups
+	    
+	    $masterUser  = Sentry::getUserProvider()->findByLogin('master@master.com');
+	    $masterGroup = Sentry::getGroupProvider()->findByName('Master');
+	    $masterUser->addGroup($masterGroup);
+
+	    $accountantUser  = Sentry::getUserProvider()->findByLogin('accounts@user.com');
+	    $accountantGroup = Sentry::getGroupProvider()->findByName('Accountant');
+	    $accountantUser->addGroup($accountantGroup);
+
+	    $user  = Sentry::getUserProvider()->findByLogin('user@user.com');
+	    $masterGroup = Sentry::getGroupProvider()->findByName('Master');
+	    $user->addGroup($masterGroup);
+	}
+
+}
