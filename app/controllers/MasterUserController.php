@@ -163,7 +163,6 @@ class MasterUserController extends BaseController
         return Redirect::to('/')->with('message', 'You have been logged out. See you later.'); // with message modal overlay
     }
 
-
     /**
     * Displays currently logged-in user
     * @return route Redirect to Login page
@@ -185,6 +184,54 @@ class MasterUserController extends BaseController
         return Response::json($array);
       }
     }
+
+    /**
+    * Test function for displaying a User registration form.
+    * @return View Returns a Laravel view
+    */
+    public function getUserUpdate()
+    {
+      return View::make('user.update');
+    }
+
+    /**
+    * Test function for displaying a User registration form.
+    * @return View Returns a Laravel view
+    */
+    public function postUserUpdate()
+    {
+      // update user account details
+      
+      // save changes to database
+      
+      // redirect to user/account
+    }
+
+    /**
+    * Test function for displaying a User registration form.
+    * @return View Returns a Laravel view
+    */
+    public function getUserCleanup()
+    {
+      return View::make('user.delete');
+    }
+
+    /**
+    * Delete user account
+    * @return View Returns a Laravel view
+    */
+    public function postUserCleanup()
+    {
+      // Soft Delete from database
+
+      // redirect to login page
+      return Redirect::to('user/login')->withErrors('Hello');
+    }
+
+    /**-------------------------
+     * User Groups
+     * -------------------------
+     */
 
     /**
      * Return all user groups
@@ -236,26 +283,5 @@ class MasterUserController extends BaseController
             $array = array('message' => $e->getMessage(), 'error' => 1);
             return Response::json($array);
         }
-    }
-
-    /**
-    * Test function for displaying a User registration form.
-    * @return View Returns a Laravel view
-    */
-    public function getUserCleanup()
-    {
-      return View::make('user.delete');
-    }
-
-    /**
-    * Delete user account
-    * @return View Returns a Laravel view
-    */
-    public function postUserCleanup()
-    {
-      // Soft Delete from database
-
-      // redirect to login page
-      return Redirect::to('user/login')->withErrors('Hello');
     }
 }

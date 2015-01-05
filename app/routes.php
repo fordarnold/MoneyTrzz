@@ -31,19 +31,24 @@ Route::get('user/session/close', 'MasterUserController@doLogout');
 Route::get('user/register', 'MasterUserController@getRegister');
 Route::post('user/register', 'MasterUserController@postRegister');
 
-# Authenticate user before visiting these routes
-// Route::group(['before' => 'auth'], function(){
+# Authenticate user first
+Route::group(['before' => 'auth'], function(){
 
 	# Every logged-in user gets to:
 	#
+	# See dashboard
+	Route::get('welcome', 'HomeController@getDashboard');
+
+	# Check user account details
+	Route::get('users/me', 'MasterUserController@getCurrentUser');
+	
 	# Update his/her account
 	Route::get('user/update', 'MasterUserController@getUserUpdate');
 	Route::post('user/update', 'MasterUserController@postUserUpdate');
 
 	#
 
-
-// }
+});
 
 # Authenticate user as 'master' before visiting these routes
 // Route::group(['before' => 'auth|master'], function(){

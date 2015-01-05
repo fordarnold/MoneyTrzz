@@ -3,11 +3,14 @@
 @section('content')
 
 <div class="row">
-  <div class="large-6 small-12 columns centered">
+  <div class="large-6 small-12 columns centered text-center">
+
+    <section id="focus-content">
+
     <h3>Update your account</h3>
     <article>
 
-      {{ Form::open(array('url' => 'user/register')) }}
+      {{ Form::open(array('url' => 'user/update')) }}
 
       @if($errors->any())
       <div class="alert alert-danger">
@@ -36,15 +39,17 @@
         {{ Form::label('groups', 'Groups') }}
         {{ Form::password('groups', array('class' => 'form-control', 'placeholder' => 'Groups')) }}
       </div>
+
+      <p></p>
       <div class="form-group">
-        {{ Form::submit('Register', array('class' => 'btn btn-success')) }}i
-        {{ HTML::link('/', 'Cancel', array('class' => 'btn btn-danger')) }}
+        {{ Form::submit('Update account details', array('class' => 'btn btn-success')) }}
       </div>
 
       {{ Form::close() }}
 
     </article>
-  </div>
+
+  </section>
 </div>
 </div>
 

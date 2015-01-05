@@ -1,0 +1,34 @@
+body #container {
+	width: 90%;
+	margin: 10px auto;
+}
+
+header.minibar{
+	border-bottom: 1px dotted #ccc;
+}
+
+.app-name {
+	font-size: 1.3em;
+  	margin-bottom: 0;
+}
+
+.app-name, .app-name a {
+	color: limegreen;
+	font-family: "Purisa", sans-serif; 
+	text-decoration: none;
+}
+
+.app-name a:hover {
+	color: green;
+}
+
+.app-slogan {
+	color: #333;
+	font-family: "Purisa", sans-serif; 
+	font-size: 0.9em;
+	margin-top: 0;
+}
+
+#focus-content {
+	background: #eee; margin: 8px 0px; padding: 5px 0;
+}

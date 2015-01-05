@@ -20,4 +20,13 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	/**
+     * Show dashboard to logged-in user
+     * @return View Returns a Laravel view
+     */
+    public function getDashboard()
+    {
+        return View::make('dashboard');
+    }
+
 }

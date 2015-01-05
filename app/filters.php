@@ -33,18 +33,18 @@ App::after(function($request, $response)
 |
 */
 
+# Auth filter
+#
 Route::filter('auth', function()
 {
-	if (Auth::guest())
-	{
+	if (!Sentry::check()) {
+
+		// API key needed for Ajax requests ?
 		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
+			return Response::make('You need an API token to authenticate with Ajax', 401);
+
 		else
-		{
-			return Redirect::guest('login');
-		}
+			return Redirect::guest('user/login');
 	}
 });
 

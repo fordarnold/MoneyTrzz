@@ -12,7 +12,7 @@
 
   <!-- webfonts enabled -->
   {{ HTML::script('https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js') }}
-  
+
 </head>
 <body>
 
@@ -29,10 +29,9 @@
 			<div class="large-6 small-12 columns text-right">
 				<ul class="inline">
 					@if($errors->has('errors'))
-					<li>{{ HTML::link('welcome', 'Home') }}</li>
-					<li>{{ HTML::link('user/account', 'My Account', array('class' => '')) }}</li>
-					<li>{{ HTML::link('user/logout', 'Logout') }}</li>
-					@endif
+          <li>Welcome, {{ HTML::link('users/me', 'User') }}</li>
+          <li>{{ HTML::link('user/logout', 'Logout') }}</li>
+          @endif
 				</ul>
 			</div>
 		</div>
