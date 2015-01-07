@@ -1,11 +1,15 @@
 /* Helper Classes */
+.app-name {
+	/*font-size: 3em;*/
+	margin: 16px 0 0 0;
+}
+.app-slogan {
+	/*font-size: 1.5em;*/
+}
+
 .text-center {text-align: center;}
 .text-right {text-align: right;}
 
 .msg-warning {color: red;}
 
-.inline li {
-	list-style: none;
-	display: inline-block;
-	padding-left: 10px;
-}
+.no-bullets li {list-style: none;}

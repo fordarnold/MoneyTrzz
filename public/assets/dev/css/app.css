@@ -8,8 +8,12 @@ header.minibar{
 }
 
 .app-name {
-	font-size: 1.3em;
   	margin-bottom: 0;
+}
+
+.app-slogan {
+	color: #333;
+	font-family: "TakaoPGothic", sans-serif;
 }
 
 .app-name, .app-name a {
@@ -22,12 +26,14 @@ header.minibar{
 	color: green;
 }
 
-.app-slogan {
-	color: #333;
-	font-family: "TakaoPGothic", sans-serif;
-	font-size: 0.9em;
+.features ul li {
+
 }
 
 #focus-content {
 	background: #eee; margin: 8px 0px; padding: 5px 0;
+}
+
+footer ul li, footer .copyright{
+	font-size: 0.8em;
 }

@@ -5,4 +5,10 @@ body {
 	font-family: "Nimbus Sans L", sans-serif;
 }
 
+h1, h2, h3, h4, h5 {font-family: "TakaoPGothic", sans-serif; }
+h1, h2, h3 {color: #444;}
+h3 {color: limegreen;}
+
 ul li {padding-bottom: 3px;}
+
+a {color: limegreen;}
