@@ -1,9 +1,8 @@
 body {
+	margin:0;
 	vertical-align: middle;
 	padding: 10px;
-	font-family: "Courier 10 Pitch", sans-serif;
+	font-family: "Nimbus Sans L", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 5px 0 10px;
-}
+ul li {padding-bottom: 3px;}

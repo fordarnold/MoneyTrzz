@@ -14,7 +14,7 @@ header.minibar{
 
 .app-name, .app-name a {
 	color: limegreen;
-	font-family: "Purisa", sans-serif; 
+	font-family: "TakaoPGothic", sans-serif;
 	text-decoration: none;
 }
 
@@ -24,9 +24,8 @@ header.minibar{
 
 .app-slogan {
 	color: #333;
-	font-family: "Purisa", sans-serif; 
+	font-family: "TakaoPGothic", sans-serif;
 	font-size: 0.9em;
-	margin-top: 0;
 }
 
 #focus-content {

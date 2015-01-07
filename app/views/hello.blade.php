@@ -3,14 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Money Trzz - Welcome</title>
+
+	{{ HTML::style('assets/dev/css/general.css') }}
+	{{ HTML::style('assets/dev/css/helpers.css') }}
+	{{ HTML::style('assets/dev/css/app.css') }}
+
 	<style>
-		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
 		body {
-			margin:0;
-			font-family:'Lato', sans-serif;
-			text-align:center;
+			text-align: center;
 			vertical-align: middle;
+			font-size: 1.2em;
 		}
 
 		.welcome {
@@ -23,21 +26,22 @@
 			text-decoration:none;
 		}
 
-		h1, h2, h3, h4, h5{font-family: "Purisa", sans-serif; }
+		h1, h2, h3, h4, h5{font-family: "TakaoPGothic", sans-serif; }
 		h1, h2, h3{color: #444;}
 
-		h1 {
-			font-size: 40px;
+		.app-name {
+			font-size: 3em;
 			margin: 16px 0 0 0;
 		}
+		.app-slogan {
+			font-size: 1.5em;
+		}
 
-		h4 {color: limegreen;}
+		h3 {color: limegreen;}
 
 		article ul {padding-left: 0;}
 
-		article ul li {list-style: none; padding: 3px 0;}
-
-		.app-name {color: limegreen;}
+		article ul li {list-style: none;}
 
 		span.special {color: green; font-size: 0.8em; font-family: "Times New Roman", serif;}
 	</style>
@@ -45,10 +49,10 @@
 <body>
 	<div class="welcome">
 		<h1 class="app-name">Money Trzz</h1>
-		<h3 class="app-slogan">Easy money management<br>to get you out of Rat Race</h3>
+		<h2 class="app-slogan">Easy money management<br>to get you out of Rat Race</h2>
 
 		<hr>
-		<h4>What does it give you ?</h4>
+		<h3>What does it give you ?</h3>
 
 		<article>
 			<ul>
