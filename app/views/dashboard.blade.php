@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="row">
-  <div class="large-8 small-12 columns centered text-center">
+  <div class="large-12 columns">
 
-    <section id="focus-content">
+    <section id="page-content">
 
-      <h3>Summary Information</h3>
+      <h4 class="page-title">Summary Information</h4>
 
       <section class="tile">
         <h4>Account ID</h4>

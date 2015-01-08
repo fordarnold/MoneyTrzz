@@ -12,6 +12,7 @@
 */
 
 # Landing Page
+# Show this page only to non-logged-in users
 Route::get('/', 'HomeController@showWelcome');
 
 /**

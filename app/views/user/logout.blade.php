@@ -3,18 +3,17 @@
 @section('content')
 
 <div class="row">
-  <div class="large-8 small-12 columns centered text-center">
+  <div class="large-12 columns">
 
-    <section id="focus-content">
+    <section id="page-content">
 
-      <h3 class="text-center">Logout</h3>
-      <article class="text-center">
-        <p>We will close your session, and backup your latest data.</p>
-        <h4>Thanks for stopping by</h4>
+      <h4 class="page-title">Logout</h4>
 
-        <p>
-          {{ HTML::link('user/session/close', 'Close session', array('class' => 'button')) }}
-        </p>
+      <article>
+        <p>We will close your current session, and backup your latest data.
+          <br>Thank you for stopping by. Come back again soon :)</p>
+
+          {{ HTML::link('user/session/close', 'Close my session', array('class' => 'button success')) }}
       </article>
 
     </section>

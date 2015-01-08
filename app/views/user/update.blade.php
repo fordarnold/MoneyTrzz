@@ -3,11 +3,12 @@
 @section('content')
 
 <div class="row">
-  <div class="large-6 small-12 columns centered text-center">
+  <div class="large-12 columns">
 
-    <section id="focus-content">
+    <section id="page-content">
 
-    <h3>Update your account</h3>
+    <h4 class="page-title">Update your account</h4>
+
     <article>
 
       {{ Form::open(array('url' => 'user/update')) }}

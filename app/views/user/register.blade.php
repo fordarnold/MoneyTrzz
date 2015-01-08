@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="row">
-  <div class="large-6 small-12 columns centered text-center">
+  <div class="large-12 columns">
 
-    <section id="focus-content">
+    <section id="page-content">
 
-      <h3>Open your Master User account</h3>
+      <h4 class="page-title">Open a Master User account</h4>
 
       {{ Form::open(array('url' => 'user/register')) }}
 
@@ -18,28 +18,31 @@
       </div>
       @endif
 
-      {{ Form::label('fname', 'First Name') }}
+      {{ Form::label('first_name', 'First Name') }}
         {{ Form::text('first_name', '', array('class' => 'form-control', 'placeholder' => 'First Name')) }}
 
       {{ Form::label('last_name', 'Last Name') }}
         {{ Form::text('last_name', '', array('class' => 'form-control', 'placeholder' => 'Last Name')) }}
 
       {{ Form::label('email', 'Email Address') }}
-        {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address')) }}
+        {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'your-email@website.com')) }}
 
       {{ Form::label('password', 'Password') }}
-        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
+        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password (secure)')) }}
 
-      {{ Form::label('groups', 'Groups') }}
-        {{ Form::password('groups', array('class' => 'form-control', 'placeholder' => 'Groups')) }}
+      {{ Form::label('confirm_password', 'Confirm Password') }}
+        {{ Form::password('confirm_password', array('class' => 'form-control', 'placeholder' => 'Password again')) }}
 
-      <p></p>
-
-      {{ Form::submit('Open account', array('class' => 'button')) }}
+      <div class="row">
+        <div class="large-6 medium-6 columns">
+          {{ Form::submit('Open master account', array('class' => 'button')) }}
+        </div>
+        <div class="large-6 medium-6 columns text-right">
+          <h5>{{ HTML::link('user/login', 'Already have an account? Login &rsaquo;') }}</h5>
+        </div>
+      </div>
 
       {{ Form::close() }}
-
-      <h3>{{ HTML::link('user/login', 'or Login, if you already have an account', array('class' => 'button')) }}</h3>
 
     </section>
   </div>

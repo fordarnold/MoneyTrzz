@@ -1,33 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Money Trzz</title>
-  {{ HTML::style('http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css') }}
+
+  <!-- grid framework -->
+  {{ HTML::style('assets/dev/vendor/foundation-5.5.0/css/foundation.css') }}
 
   <!-- my css -->
   {{ HTML::style('assets/dev/css/general.css') }}
   {{ HTML::style('assets/dev/css/helpers.css') }}
   {{ HTML::style('assets/dev/css/app.css') }}
 
-  <!-- webfonts enabled -->
-  {{ HTML::script('https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js') }}
+  {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/vendor/modernizr.js') }}
 
 </head>
-<body>
+<body class="dash">
 
 <div id="container">
 
 	<header class="minibar">
 		<div class="row">
-			<div class="large-6 small-12 columns">
+			<div class="large-6 columns">
 				<hgroup>
 					<h1 class="app-name">{{ HTML::link('/', 'Money Trzz') }}</h1>
 					<h3 class="app-slogan">That's the perfect place for shade</h3>
 				</hgroup>
 			</div>
-			<div class="large-6 small-12 columns text-right">
-				<ul class="inline">
+			<div class="large-6 columns">
+        <br><br>
+				<ul class="inline-list">
 					@if($errors->has('errors'))
           <li>Welcome, {{ HTML::link('users/me', 'User') }}</li>
           <li>{{ HTML::link('user/logout', 'Logout') }}</li>
@@ -37,11 +40,17 @@
 		</div>
 	</header><!-- /header -->
 
-	@yield('content')
+  <main>
+    @yield('content')
+  </main>
 
 </div>
 
-	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}
-	{{ HTML::script('http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
+  {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/vendor/jquery.js') }}
+  {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/foundation.min.js') }}
+  <script>
+  $(document).foundation();
+  </script>
+
 </body>
 </html>

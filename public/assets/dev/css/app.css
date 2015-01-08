@@ -1,11 +1,10 @@
 body #container {
 	width: 90%;
-	margin: 10px auto;
+	margin: 0 auto;
 }
 
-header.minibar{
-	border-bottom: 1px dotted #ccc;
-}
+body.app header.minibar .app-name {font-size: 1.7em;}
+body.app header.minibar .app-slogan {font-size: 1em;}
 
 .app-name {
   	margin-bottom: 0;
@@ -30,9 +29,11 @@ header.minibar{
 
 }
 
-#focus-content {
+body.app main {
 	background: #eee; margin: 8px 0px; padding: 5px 0;
 }
+
+body.app main .page-title {margin: 20px 0;}
 
 footer ul li, footer .copyright{
 	font-size: 0.8em;

@@ -3,27 +3,12 @@
 @section('content')
 
 <div class="row">
-  <div class="large-6 small-12 columns centered text-center">
+  <div class="large-12 columns">
 
-  @if($errors->has('errors'))
-  <div class="alert-box success">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    <p>Master account has been deleted from our main records.</p>
-    <p>Added to our backup records.</p>
-    {{ $errors->first('errors', ':message') }}
-  </div>
-  @endif
+    <section id="page-content">
 
-  </div>
-</div>
+      <h4 class="page-title">Sign In</h4>
 
-<div class="row">
-  <div class="large-6 small-12 columns centered text-center">
-
-    <section id="focus-content">
-
-      <h3>Login</h3>
-      
       {{ Form::open(array('url' => 'user/login')) }}
 
       @if($errors->has('errors'))
@@ -38,10 +23,8 @@
 
       {{ Form::label('password', 'Password') }}
         {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
-      
-      <p></p>
 
-      {{ Form::submit('Start session', array('class' => 'btn btn-success')) }}
+      {{ Form::submit('Start my session', array('class' => 'button success')) }}
 
       {{ Form::close() }}
     </section>
