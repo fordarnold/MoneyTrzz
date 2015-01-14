@@ -51,9 +51,10 @@
 
       </div>
       <div class="large-6 columns text-right">
-        Copyright &copy; {{ date('Y') }}
+        <p>Copyright &copy; {{ date('Y') }}</p>
       </div>
     </div>
+  </footer>
 
 </div>
 

@@ -16,29 +16,30 @@
   {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/vendor/modernizr.js') }}
 
 </head>
-<body class="dash">
+<body class="app">
 
-<div id="container">
+  <div id="container-40">
 
-	<header class="minibar">
-		<div class="row">
-			<div class="large-6 columns">
-				<hgroup>
-					<h1 class="app-name">{{ HTML::link('/', 'Money Trzz') }}</h1>
-					<h3 class="app-slogan">That's the perfect place for shade</h3>
-				</hgroup>
-			</div>
-			<div class="large-6 columns">
+  <header class="minibar">
+    <div class="row">
+      <div class="large-6 columns">
+        <hgroup>
+          <h1 class="app-name">{{ HTML::link('/', 'Money Trzz') }}</h1>
+          <h3 class="app-slogan">That's the perfect place for shade</h3>
+        </hgroup>
+      </div>
+      <div class="large-6 columns">
         <br><br>
-				<ul class="inline-list">
-					@if($errors->has('errors'))
-          <li>Welcome, {{ HTML::link('users/me', 'User') }}</li>
+        <ul class="inline-list">
+          @if($errors->has('errors'))
+          <li>{{ HTML::link('welcome', 'Home') }}</li>
+          <li>{{ HTML::link('user/account', 'My Account', array('class' => '')) }}</li>
           <li>{{ HTML::link('user/logout', 'Logout') }}</li>
           @endif
-				</ul>
-			</div>
-		</div>
-	</header><!-- /header -->
+        </ul>
+      </div>
+    </div>
+  </header><!-- /header -->
 
   <main>
     @yield('content')
@@ -53,14 +54,13 @@
         <p>Copyright &copy; {{ date('Y') }}</p>
       </div>
     </div>
-  </footer>
 
-</div>
+  </div>
 
   {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/vendor/jquery.js') }}
   {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/foundation.min.js') }}
   <script>
-  $(document).foundation();
+    $(document).foundation();
   </script>
 
 </body>
