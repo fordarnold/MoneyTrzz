@@ -45,6 +45,16 @@
     @yield('content')
   </main>
 
+  <footer>
+    <div class="row">
+      <div class="large-6 columns">
+
+      </div>
+      <div class="large-6 columns text-right">
+        Copyright &copy; {{ date('Y') }}
+      </div>
+    </div>
+
 </div>
 
   {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/vendor/jquery.js') }}
@@ -52,6 +62,6 @@
   <script>
   $(document).foundation();
   </script>
-  
+
 </body>
 </html>

@@ -30,7 +30,7 @@ body.app header.minibar .app-slogan {font-size: 1em;}
 }
 
 body.app main {
-	background: #eee; margin: 8px 0px; padding: 5px 0;
+	background: #eee; padding: 5px 0;
 }
 
 body.app main .page-title {margin: 20px 0;}
