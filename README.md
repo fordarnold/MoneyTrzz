@@ -1,4 +1,6 @@
-# MoneyTrzz
+![Money Trzz](https://raw.githubusercontent.com/meridianappz/MoneyTrzz/master/public/assets/dev/images/Money_Tree.png)
+
+# Money Trzz
 > Manage your cash assets with ease, and get out of the Rat Race.
 
 This app is currently under development.
