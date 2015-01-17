@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="keywords" content="money, trees, easy, cash, asset, management" />
+  <meta name="author" content="Meridian Appz Inc." />
+  <meta name="description" content="Manage your cash assets with ease." />
+
   <title>Money Trzz</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
   <!-- grid framework -->
   {{ HTML::style('assets/dev/vendor/foundation-5.5.0/css/foundation.css') }}
