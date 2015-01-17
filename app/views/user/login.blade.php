@@ -27,6 +27,10 @@
       {{ Form::submit('Start my session', array('class' => 'button success')) }}
 
       {{ Form::close() }}
+
+      <p>
+        {{ HTML::link('user/register', '/ I have no account') }}
+      </p>
     </section>
 
   </div>

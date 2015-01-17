@@ -1,5 +1,5 @@
 # MoneyTrzz
-> Easy money management to get you out of the Rat Race.
+> Manage your cash assets with ease, and get out of the Rat Race.
 
 This app is currently under development.
 
