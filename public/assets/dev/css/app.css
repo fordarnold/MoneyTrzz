@@ -40,6 +40,6 @@ body.app main {
 
 body.app main .page-title {margin: 20px 0;}
 
-footer ul li, footer .copyright{
+footer ul li, footer p {
 	font-size: 0.8em;
 }

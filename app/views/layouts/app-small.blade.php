@@ -48,12 +48,16 @@
   <footer>
     <div class="row">
       <div class="large-6 columns">
-
+        <ul class="inline-list">
+          <li>{{ HTML::link('legal/terms', 'Terms and conditions') }}</li>
+          <li>{{ HTML::link('legal/terms', 'Privacy policy') }}</li>
+        </ul>
       </div>
       <div class="large-6 columns text-right">
         <p>Copyright &copy; {{ date('Y') }}</p>
       </div>
     </div>
+  </footer>
 
   </div>
 
