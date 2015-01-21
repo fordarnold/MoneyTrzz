@@ -24,7 +24,7 @@
   {{ HTML::script('assets/dev/vendor/foundation-5.5.0/js/vendor/modernizr.js') }}
 
 </head>
-<body class="app">
+<body class="app small">
 
   <div id="container-40">
 

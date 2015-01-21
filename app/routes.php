@@ -11,8 +11,7 @@
 |
 */
 
-# Landing Page
-# Show this page only to non-logged-in users
+# Landing Page, show this page only to non-logged-in users
 Route::get('/', 'HomeController@showWelcome');
 
 /**
@@ -20,17 +19,20 @@ Route::get('/', 'HomeController@showWelcome');
  * @author robin hood <fordarnold@gmail.com>
  */
 
-# Login
+# login
 Route::get('user/login', 'MasterUserController@getLogin');
 Route::post('user/login', 'MasterUserController@postLogin');
 
-# Logout
+# logout
 Route::get('user/logout', 'MasterUserController@getLogout');
 Route::get('user/session/close', 'MasterUserController@doLogout');
 
-# Register
+# register
 Route::get('user/register', 'MasterUserController@getRegister');
 Route::post('user/register', 'MasterUserController@postRegister');
+
+# current user's profile
+Route::get('user/me', 'MasterUserController@getCurrentUser');
 
 # Authenticate user first
 Route::group(['before' => 'auth'], function(){

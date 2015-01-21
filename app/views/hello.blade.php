@@ -5,6 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Money Trzz - Welcome</title>
 
+	<!-- favicon -->
+  	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
 	<!-- grid framework -->
 	{{ HTML::style('assets/dev/vendor/foundation-5.5.0/css/foundation.css') }}
 
@@ -24,7 +27,7 @@
 					<h1 class="app-name">
 						{{ HTML::link('/', 'Money Trzz') }}
 					</h1>
-					<h3 class="app-slogan">Easy money management<br>to get you out of Rat Race</h3>
+					<h3 class="app-slogan">Manage your cash assets with ease</h3>
 				</hgroup>
 			</div>
 		</div>
@@ -49,7 +52,7 @@
 						<li>Money Reports, filtered by Quarter/Month</li>
 					</ul>
 
-						{{ HTML::link('index.php/user/register', 'Try it now !', array('class' => 'button round alert')) }}
+						{{ HTML::link('user/register', 'Try it now !', array('class' => 'button round alert')) }}
 				</article>
 
 			</div>
