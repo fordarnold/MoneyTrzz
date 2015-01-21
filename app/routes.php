@@ -19,6 +19,10 @@ Route::get('/', 'HomeController@showWelcome');
  * @author robin hood <fordarnold@gmail.com>
  */
 
+# register
+Route::get('user/register', 'MasterUserController@getRegister');
+Route::post('user/register', 'MasterUserController@postRegister');
+
 # login
 Route::get('user/login', 'MasterUserController@getLogin');
 Route::post('user/login', 'MasterUserController@postLogin');
@@ -26,10 +30,6 @@ Route::post('user/login', 'MasterUserController@postLogin');
 # logout
 Route::get('user/logout', 'MasterUserController@getLogout');
 Route::get('user/session/close', 'MasterUserController@doLogout');
-
-# register
-Route::get('user/register', 'MasterUserController@getRegister');
-Route::post('user/register', 'MasterUserController@postRegister');
 
 # current user's profile
 Route::get('user/me', 'MasterUserController@getCurrentUser');
