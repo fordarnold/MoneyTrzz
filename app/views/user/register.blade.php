@@ -19,26 +19,26 @@
       @endif
 
       {{ Form::label('first_name', 'First Name') }}
-        {{ Form::text('first_name', '', array('class' => 'form-control', 'placeholder' => 'First Name')) }}
+        {{ Form::text('first_name', '', ['placeholder' => '(required)']) }}
 
       {{ Form::label('last_name', 'Last Name') }}
-        {{ Form::text('last_name', '', array('class' => 'form-control', 'placeholder' => 'Last Name')) }}
+        {{ Form::text('last_name', '', ['placeholder' => '(required)']) }}
 
       {{ Form::label('email', 'Email Address') }}
-        {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'your-email@website.com')) }}
+        {{ Form::text('email', '', ['placeholder' => 'username@mail.com (required)']) }}
 
       {{ Form::label('password', 'Password') }}
-        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password (secure)')) }}
+        {{ Form::password('password', ['placeholder' => 'minimum 5 characters']) }}
 
-      {{ Form::label('confirm_password', 'Confirm Password') }}
-        {{ Form::password('confirm_password', array('class' => 'form-control', 'placeholder' => 'Password again')) }}
+      {{ Form::label('password_confirmation', 'Confirm Password') }}
+        {{ Form::password('password_confirmation', ['placeholder' => 'your password again']) }}
 
       <div class="row">
         <div class="large-6 medium-6 columns">
-          {{ Form::submit('Open master account', array('class' => 'button')) }}
+          {{ Form::submit('Open master account', ['class' => 'button']) }}
         </div>
         <div class="large-6 medium-6 columns text-right">
-          <h5>{{ HTML::link('user/login', 'Already have an account? Login &rsaquo;') }}</h5>
+          <h5>{{ HTML::link('user/login', 'I already have an account') }}</h5>
         </div>
       </div>
 
