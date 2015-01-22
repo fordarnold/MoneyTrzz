@@ -37,7 +37,7 @@
 		<div class="row">
 			<div class="large-12 columns">
 				<hr>
-				<h3>What does it give you ?</h3>
+				<h3>What's included in the app ?</h3>
 
 				<article class="features">
 					<ul class="no-bullets">
@@ -70,7 +70,7 @@
 			</div>
 			<div class="large-6 columns">
 				<hr>
-				<p class="copyright text-right">Copyright &copy; 2015, Meridian Appz Inc.</p>
+				<p class="copyright text-right">Copyright &copy; {{ date('Y') }}, {{ HTML::link('https://appz.meridiansoftech.co', 'Meridian Appz Inc.') }}</p>
 			</div>
 		</div>
 	</footer>

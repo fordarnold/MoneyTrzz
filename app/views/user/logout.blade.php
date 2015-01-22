@@ -10,10 +10,10 @@
       <h4 class="page-title">Logout</h4>
 
       <article>
-        <p>We will close your current session, and backup your latest data.
+        <p>Your current session will be closed, and your latest data backed-up.
           <br>Thank you for stopping by. Come back again soon :)</p>
 
-          {{ HTML::link('user/session/close', 'Close my session', array('class' => 'button success')) }}
+          {{ HTML::link('user/session/close', 'Close my session', ['class' => 'button success small']) }}
       </article>
 
     </section>

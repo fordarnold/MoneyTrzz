@@ -7,31 +7,37 @@
 
     <section id="page-content">
 
-      <h4 class="page-title">Delete accounts</h4>
+      <h3 class="msg-warning">Are you sure you want to delete your Master User account?</h3>
 
       <article>
-        <h2 class="msg-warning">Are you sure you want to delete the Master User account?</h2>
+        
         <p>
-          You will no longer be able to access your Master account or any of its data.
-        <br>
+          You will no longer be able to access your Master account or any of its data.<br>
           We will try to backup your data before deleting the account in case you would like to register again with the same email.
         </p>
 
-          {{ Form::open(array('url' => 'user/delete')) }}
+        {{ Form::open(array('url' => 'user/delete')) }}
 
-          @if($errors->has('errors'))
-          <div class="alert-box error">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ $errors->first('errors', ':message') }}
+        @if($errors->has('errors'))
+        <div class="alert-box error">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          {{ $errors->first('errors', ':message') }}
+        </div>
+        @endif
+
+        {{ Form::label('password', 'Enter your password to confirm') }}
+        {{ Form::password('password', ['placeholder' => 'your password']) }}
+
+        <div class="row">
+          <div class="large-6 medium-6 columns">
+            {{ Form::submit('Yes, I\'m sure I want to delete', ['class' => 'button alert']) }}
           </div>
-          @endif
+          <div class="large-6 medium-6 columns text-right">
+            <h5>{{ HTML::link('home', 'No, do not delete', ['class' => 'button secondary small']) }}</h5>
+          </div>
+        </div>
 
-          {{ Form::label('password', 'Enter your password to confirm') }}
-          {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
-
-          {{ Form::submit('Yes, I\'m sure I want to delete', array('class' => 'button alert')) }}
-
-          {{ Form::close() }}
+        {{ Form::close() }}
 
       </article>
 

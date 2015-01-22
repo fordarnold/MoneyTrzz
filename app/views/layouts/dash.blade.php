@@ -61,7 +61,7 @@
         </ul>
       </div>
       <div class="large-6 columns text-right">
-        <p>Copyright &copy; {{ date('Y') }}</p>
+        <p class="copyright">Copyright &copy; {{ date('Y') }}, {{ HTML::link('https://appz.meridiansoftech.co', 'Meridian Appz Inc.') }}</p>
       </div>
     </div>
   </footer>

@@ -19,6 +19,10 @@ Route::get('/', 'HomeController@showWelcome');
  * @author robin hood <fordarnold@gmail.com>
  */
 
+# register
+Route::get('user/register', 'MasterUserController@getRegister');
+Route::post('user/register', 'MasterUserController@postRegister');
+
 # login
 Route::get('user/login', 'MasterUserController@getLogin');
 Route::post('user/login', 'MasterUserController@postLogin');
@@ -27,29 +31,25 @@ Route::post('user/login', 'MasterUserController@postLogin');
 Route::get('user/logout', 'MasterUserController@getLogout');
 Route::get('user/session/close', 'MasterUserController@doLogout');
 
-# register
-Route::get('user/register', 'MasterUserController@getRegister');
-Route::post('user/register', 'MasterUserController@postRegister');
-
 # current user's profile
 Route::get('user/me', 'MasterUserController@getCurrentUser');
+
+# update user account
+Route::get('user/update', 'MasterUserController@getUserUpdate');
+Route::post('user/update', 'MasterUserController@postUserUpdate');
+
+# delete user
+Route::get('user/delete', 'MasterUserController@getUserCleanup');
+Route::post('user/delete', 'MasterUserController@postUserCleanup');
+
+Route::get('home', 'HomeController@getUserDashboard');
 
 # Authenticate user first
 Route::group(['before' => 'auth'], function(){
 
 	# Every logged-in user gets to:
 	#
-	# See dashboard
-	Route::get('welcome', 'HomeController@getDashboard');
-
-	# Check user account details
-	Route::get('users/me', 'MasterUserController@getCurrentUser');
-
-	# Update his/her account
-	Route::get('user/update', 'MasterUserController@getUserUpdate');
-	Route::post('user/update', 'MasterUserController@postUserUpdate');
-
-	#
+	# See a custom dashboard
 
 });
 
@@ -58,13 +58,11 @@ Route::group(['before' => 'auth'], function(){
 
 	# ONLY master users can:
 	#
-	# Register user as 'financialmanager'
+	# register user as 'financialmanager'
 	Route::get('user/register/financialmanager', 'OtherUserController@getFinancialManagerRegister');
 	Route::post('user/register/financialmanager', 'OtherUserController@postFinancialManagerRegister');
 
-	# Delete user
-	Route::get('user/delete', 'MasterUserController@getUserCleanup');
-	Route::post('user/delete', 'MasterUserController@postUserCleanup');
+	
 
 // });
 
@@ -75,16 +73,12 @@ Route::group(['before' => 'auth'], function(){
 
 // });
 
-# REST API routes (testing API token auth)
-// Route::group(array('prefix' => 'api', 'before' => 'auth.token'), function() {
+# rest api routes, requires api token auth
+Route::group(array('prefix' => 'api', 'before' => 'auth.token'), function() {
 
-	// API token auth test route '/api'
-	Route::get('/token', function() {
-		return Response::json(array('success' => 1, 'message' => 'Congratulations, you got a shiny new API token.', 'error' => 0));
-	});
+	# add routes below inside this group
+});
 
-	// Testing (errors still)
-	// NOTE: Use resource controllers
-	Route::resource('users', 'UserController@index');
-	Route::resource('users/groups', 'UserGroupController@index');
-// });
+# testing api routes before adding to above route group
+Route::resource('users', 'UserController');
+Route::resource('groups', 'UserGroupController');

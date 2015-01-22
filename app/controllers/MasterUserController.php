@@ -1,189 +1,190 @@
 <?php
 
 /**
+ * Manages master user accounts
+ * 
  * @author robin hood <fordarnold@gmail.com>
  */
-class MasterUserController extends BaseController
+class MasterUserController extends \BaseController
 {
-    /**
-     * Test function for displaying a User registration form.
-     * @return View Returns a Laravel view
-     */
-    public function getRegister()
-    {
-        return View::make('user.register');
+  /**
+   * Display a User registration form.
+   * @return View Returns a Laravel view
+   */
+  public function getRegister()
+  {
+    return View::make('user.register');
+  }
+
+  /**
+   * Display a User login form.
+   * @return View Returns a Laravel view
+   */
+  public function getLogin()
+  {
+    return View::make('user.login');
+  }
+
+  /**
+   * Create a new user account.
+   * @return json JSON object
+   */
+  public function postRegister()
+  {
+    # attempt registration
+    try {
+
+      $user = Sentry::createUser([
+        'first_name' => Input::get('first_name'),
+        'last_name' => Input::get('last_name'),
+        'email' => Input::get('email'),
+        'password' => Input::get('password'),
+        // 'password_confirmation' => Input::get('password_confirmation'),
+        'activated' => true,
+        ]);
+
+      # assign user to default group
+      $userGroup = Sentry::getGroupProvider()->findByName('Master');
+      $user->addGroup($userGroup);
+
+      # return success message
+      return Response::json([
+        'success' => 1,
+        'message' => $user->first_name . ' has been registered successfully',
+        'next_action' => 'GET route /users to see all existing users',
+        'error' => 0
+        ]);
     }
 
-    /**
-     * Test function for displaying a User login form.
-     * @return View Returns a Laravel view
-     */
-    public function getLogin()
-    {
-        return View::make('user.login');
+    catch (Cartalyst\Sentry\Users\LoginRequiredException $e){
+      return Response::json(['message' => 'Email/username is required', 'error' => 1]);
+    }
+    catch (Cartalyst\Sentry\Users\PasswordRequiredException $e){
+      return Response::json(['message' => 'Password is required', 'error' => 1]);
+    }
+    catch (Cartalyst\Sentry\Users\UserExistsException $e){
+      return Response::json(['message' => 'The user already exists', 'error' => 1]);
+    }
+    catch (Cartalyst\Sentry\Users\GroupNotFoundException $e){
+      return Response::json(['message' => 'The requested User Group was not found', 'error' => 1]);
+    }
+    catch (Exception $e){
+      return Response::json(['message' => $e->getMessage(), 'error' => 1]);
+    }
+  }
+
+  /**
+   * Start a new session for user
+   * @return json JSON object
+   */
+  public function postLogin()
+  {
+    # cache user login details
+    $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];
+
+    # attempt login
+    try {
+
+      $user = Sentry::authenticate($credentials, false);
+
+      return Response::json([
+        'success' => 1,
+        'message' => $user->first_name . ' logged in successfully',
+        'next_action' => 'GET route /users/' . $user->id . ' to see details of the logged-in user',
+        'error' => 0,
+        'user_account' => $user->toArray()
+        ]);
     }
 
-    /**
-     * Attempt user registration.
-     * @return json Returns JSON response
-     */
-    public function postRegister()
-    {
-        try {
-            $user = Sentry::createUser(array(
-                'first_name' => Input::get('first_name'),
-                'last_name' => Input::get('last_name'),
-                'email' => Input::get('email'),
-                'password' => Input::get('password'),
-                'activated' => true,
-                ));
+    catch (Cartalyst\Sentry\Users\LoginRequiredException $e){
+      return Response::json(['message' => 'Email/username is required', 'error' => 1], 412);
+    }
+    catch (Cartalyst\Sentry\Users\PasswordRequiredException $e){
+      return Response::json(['message' => 'Password is required', 'error' => 1], 412);
+    }
+    catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
+      return Response::json(['message' => 'The user was not found', 'error' => 1], 404);
+    }
+    catch (Cartalyst\Sentry\Users\WrongPasswordException $e){
+      return Response::json(['message' => 'Wrong password was entered. Please try again.', 'error' => 1], 412);
+    }
+    catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e){
+      return Response::json([
+        'message' => 'User suspended by the system, because of too many login attempts. Contact the system admin.', 
+        'error' => 1
+        ]);
+    }
+    catch (Cartalyst\Sentry\Throttling\UserBannedException $e){
+      return Response::json([
+        'message' => 'User banned by the system, because of too many login violations. Contact the system admin.', 
+        'error' => 1
+        ]);
+    }
+    catch (Exception $e){
+      return Response::json(['message' => $e->getMessage(), 'error' => 1]);
+    }
+  }
 
-            // Assign user to group
-            $group_name = Input::get('group_name');
-            $userGroup = Sentry::getGroupProvider()->findByName($group_name);
-            $user->addGroup($userGroup);
+  /**
+  * Logout confirmation page
+  * @return View Laravel view
+  */
+  public function getLogout()
+  {
+    return View::make('user.logout');
+  }
 
-            // Assign user to depot
+  /**
+   * Close user sessions
+   * @return json JSON object
+   */
+  public function doLogout()
+  {
+    # cache user's email
+    $user = Sentry::getUser();
 
-            $array = array(
-                'success' => 1,
-                'message' => 'User registered successfully as ' . $group_name,
-                'next_action' => 'get route users/employees',
-                'error' => 0
-                );
-            return Response::json($array);
+    # if no user session
+    if(is_null($user))
+      return Response::json(['message' => 'Sorry, there is no active user session at the moment.', 'error' => 1], 404);
 
-        }
-        catch (Cartalyst\Sentry\Users\LoginRequiredException $e){
+    # close the currently running user session
+    Sentry::logout();
 
-            $array = array('message' => 'Email/username is required', 'error' => 1);
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Users\PasswordRequiredException $e){
+    # return a success message
+    return Response::json([
+      'success' => 1,
+      'message' => 'User, ' . $user->email . ', logged out successfully',
+      'next_action' => 'GET route /user/login or Go back to home page at route /',
+      'error' => 0
+      ]);
+  }
 
-            $array = array('message' => 'A password is required', 'error' => 1);
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Users\UserExistsException $e){
+  /**
+  * Display currently logged-in user
+  * @return json JSON object
+  */
+  public function getCurrentUser()
+  {
+    try{
 
-            $array = array('message' => 'The user already exists', 'error' => 1);
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Users\GroupNotFoundException $e){
+      $user = Sentry::getUser();
 
-            $array = array('message' => 'The specified User Group was not found', 'error' => 1);
-            return Response::json($array);
-        }
-        catch (Exception $e){
+      if (is_null($user))
+        return Response::json(['message' => 'There is no logged-in user at the moment', 'error' => 1], 404);
 
-            $array = array('message' => $e->getMessage(), 'error' => 1);
-            return Response::json($array);
-        }
+      # get user's api token
+      $token = $user->token()->where('client',BrowserDetect::toString())->first();
+      # return logged-in user details
+      return Response::json(['user' => $user->toArray(), 'token' => $token->toArray(), 'error' => 0]);
     }
 
-    /**
-     * Attempt user login
-     * @return json Returns JSON response
-     */
-    public function postLogin()
-    {
-        // Cache user login details
-        $credentials = array(
-            'email' => Input::get('email'),
-            'password' => Input::get('password')
-            );
-
-        // Attempt login
-        try {
-            $user = Sentry::authenticate($credentials, false);
-
-            return Response::json(array(
-                'success' => 1,
-                'message' => 'User logged in successfully',
-                'next_action' => 'get route app/welcome',
-                'error' => 0,
-                'user' => $user->toArray()
-                ));
-        }
-        catch (Cartalyst\Sentry\Users\LoginRequiredException $e){
-            $array = array('message' => 'Email/username is required', 'error' => 1);
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Users\PasswordRequiredException $e){
-            $array = array('message' => 'Password is required', 'error' => 1);
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
-            $array = array('message' => 'The user was not found', 'error' => 1);
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Users\WrongPasswordException $e){
-            $array = array(
-                'message' => 'Wrong password was entered. Please try again.',
-                'error' => 1
-                );
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e){
-            $array = array(
-                'message' => 'This user account has been suspended by the system, because of too many login attempts. Contact your system admin.',
-                'error' => 1
-                );
-            return Response::json($array);
-        }
-        catch (Cartalyst\Sentry\Throttling\UserBannedException $e){
-            $array = array(
-                'message' => 'This user account has been banned by the system, because of too many login violations. Contact your system admin.',
-                'error' => 1
-                );
-            return Response::json($array);
-        }
-        catch (Exception $e){
-            $array = array('message' => $e->getMessage(), 'error' => 1);
-            return Response::json($array);
-        }
+    catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
+      return Response::json(['message' => 'The user was not found', 'error' => 1]);
     }
-
-    /**
-    * Logout Page
-    * @return route Redirect to Login page
-    */
-    public function getLogout()
-    {
-      return View::make('user.logout');
+    catch (Exception $e){
+      return Response::json(['message' => $e->getMessage(), 'error' => 1]);
     }
-
-    /**
-     * Close user sessions
-     * @return route Redirect to Login page
-     */
-    public function doLogout()
-    {
-        Sentry::logout();
-        return Redirect::to('/')->with('message', 'You have been logged out. See you later.'); // with message modal overlay
-    }
-
-    /**
-    * Displays currently logged-in user
-    * @return route Redirect to Login page
-    */
-    public function getCurrentUser()
-    {
-      try{
-        $user = Sentry::getUser();
-        $token = $user->token()->where('client',BrowserDetect::toString())->first();
-
-        return Response::json(array('user' => $user->toArray(), 'token' => $token->toArray(), 'error' => 0));
-      }
-      catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
-        $array = array('message' => 'The user was not found', 'error' => 1);
-        return Response::json($array);
-      }
-      catch (Exception $e){
-        $array = array('message' => $e->getMessage(), 'error' => 1);
-        return Response::json($array);
-      }
-    }
+  }
 
     /**
     * Test function for displaying a User registration form.
