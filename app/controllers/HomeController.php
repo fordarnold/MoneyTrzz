@@ -24,7 +24,7 @@ class HomeController extends BaseController {
      * Show dashboard to logged-in user
      * @return View Returns a Laravel view
      */
-    public function getDashboard()
+    public function getUserDashboard()
     {
         return View::make('dashboard');
     }
