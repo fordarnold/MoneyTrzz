@@ -3,9 +3,10 @@
 class BankAccountsController extends \BaseController {
 
 	/**
-	 * Display a listing of bankaccounts
+	 * GET /accounts/banks
+	 * Display a listing of bank accounts
 	 *
-	 * @return Response
+	 * @return Response JSON object
 	 */
 	public function index()
 	{
@@ -15,9 +16,10 @@ class BankAccountsController extends \BaseController {
 	}
 
 	/**
-	 * Show the form for creating a new bankaccount
+	 * GET /accounts/banks/create
+	 * Show the form for creating a new bank account
 	 *
-	 * @return Response
+	 * @return View Laravel view
 	 */
 	public function create()
 	{
@@ -25,9 +27,10 @@ class BankAccountsController extends \BaseController {
 	}
 
 	/**
-	 * Store a newly created bankaccount in storage.
+	 * POST /accounts/banks
+	 * Store a newly created bank account in storage.
 	 *
-	 * @return Response
+	 * @return Response JSON object
 	 */
 	public function store()
 	{
@@ -44,6 +47,7 @@ class BankAccountsController extends \BaseController {
 	}
 
 	/**
+	 * GET /accounts/banks/{id}
 	 * Display the specified bankaccount.
 	 *
 	 * @param  int  $id
