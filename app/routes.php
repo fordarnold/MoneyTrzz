@@ -11,8 +11,17 @@
 |
 */
 
-# Landing Page, show this page only to non-logged-in users
+/**
+ * Public Routes
+ * @author robin hood <fordarnold@gmail.com>
+ */
+
+# landing Page
 Route::get('/', 'HomeController@showWelcome');
+
+# legal pages
+Route::get('legal/terms', function() { return View::make('legal.terms'); });
+Route::get('legal/privacy', function() { return View::make('legal.privacy'); });
 
 /**
  * Auth Routes
