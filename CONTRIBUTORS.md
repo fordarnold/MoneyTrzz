@@ -9,19 +9,18 @@ Looking forward to seeing that commit tree. :)
 
 - User Account management
 	- Master user account setup
-	- Account registration
-	- Account update
-	- Account deletion
+	- User account resource CRUD
 	- Login and Logout of Session
+
+- Bank Account management 
+	- Bank account resource CRUD
+	- master user hasOne Bank
+	- Owner, Personal/Business account
+	- Type definition, Savings/Checking/Current account
+	- Business account attached to Bank Account owner: business
 
 - User Business Account management 
 	- master user hasMany
-
-- Bank Account management 
-	- master user hasMany
-	- Type definition, Personal/Business account
-	- Service definition, Savings/Checking/Current account
-	- Business account attached to Bank Account type: business
 
 - Deposits management
 

@@ -2,14 +2,13 @@
 
 /**
  * Manages master user accounts
- * 
  * @author robin hood <fordarnold@gmail.com>
  */
 class MasterUserController extends \BaseController
 {
   /**
    * Display a User registration form.
-   * @return View Returns a Laravel view
+   * @return View Laravel view
    */
   public function getRegister()
   {
@@ -18,7 +17,7 @@ class MasterUserController extends \BaseController
 
   /**
    * Display a User login form.
-   * @return View Returns a Laravel view
+   * @return View Laravel view
    */
   public function getLogin()
   {
@@ -27,13 +26,13 @@ class MasterUserController extends \BaseController
 
   /**
    * Create a new user account.
-   * @return json JSON object
+   * @return Response JSON object
    */
   public function postRegister()
   {
-    # attempt registration
     try {
 
+      # attempt creation of user
       $user = Sentry::createUser([
         'first_name' => Input::get('first_name'),
         'last_name' => Input::get('last_name'),
@@ -50,9 +49,10 @@ class MasterUserController extends \BaseController
       # return success message
       return Response::json([
         'success' => 1,
+        'error' => 0,
         'message' => $user->first_name . ' has been registered successfully',
         'next_action' => 'GET route /users to see all existing users',
-        'error' => 0
+        'user' => $user
         ]);
     }
 

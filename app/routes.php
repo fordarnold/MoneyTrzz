@@ -51,16 +51,27 @@ Route::post('user/update', 'MasterUserController@postUserUpdate');
 Route::get('user/delete', 'MasterUserController@getUserCleanup');
 Route::post('user/delete', 'MasterUserController@postUserCleanup');
 
-Route::get('home', 'HomeController@getUserDashboard');
-
+/**
+ * Protected Routes
+ * @author robin hood <fordarnold@gmail.com>
+ */
 # Authenticate user first
-Route::group(['before' => 'auth'], function(){
+#Route::group(['before' => 'auth'], function(){
 
-	# Every logged-in user gets to:
+	# Every logged-in user gets to see:
 	#
-	# See a custom dashboard
+	# a custom dashboard
+	Route::get('home', 'HomeController@getUserDashboard');
+	
+	# user account profile, settings
+	Route::get('accounts/users/me/profile', 'UserAccountController@getProfile');
+	Route::get('accounts/users/me/settings', 'UserAccountController@getSettings');
 
-});
+	# bank account resource CRUD
+	Route::get('accounts/banks/new', 'BankAccountsController@create');
+	Route::resource('accounts/banks', 'BankAccountsController');
+
+#});
 
 # Authenticate user as 'master' before visiting these routes
 // Route::group(['before' => 'auth|master'], function(){

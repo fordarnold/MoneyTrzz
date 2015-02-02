@@ -15,18 +15,25 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	/**
+	 * Landing page
+	 * @return View a Laravel view
+	 */
 	public function showWelcome()
 	{
 		return View::make('hello');
 	}
 
 	/**
-     * Show dashboard to logged-in user
-     * @return View Returns a Laravel view
-     */
-    public function getUserDashboard()
-    {
-        return View::make('dashboard');
-    }
+   * Show dashboard to logged-in user
+   * @return View a Laravel view
+   */
+  public function getUserDashboard()
+  {
+  	if (Input::has('first_timer')) 
+  		return View::make('dashboard_newbie');
+
+  	return View::make('dashboard');
+  }
 
 }

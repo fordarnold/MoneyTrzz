@@ -28,7 +28,8 @@
 
 <div id="container">
 
-	<header class="minibar">
+	<header>
+
 		<div class="row">
 			<div class="large-6 columns">
 				<hgroup>
@@ -46,6 +47,7 @@
 				</ul>
 			</div>
 		</div>
+    
 	</header><!-- /header -->
 
   <main>
@@ -56,8 +58,8 @@
     <div class="row">
       <div class="large-6 columns">
         <ul class="inline-list">
-          <li>{{ HTML::link('legal/terms', 'Terms and conditions') }}</li>
-          <li>{{ HTML::link('legal/privacy', 'Privacy policy') }}</li>
+          <li>{{ HTML::link('legal/terms', 'Terms') }}</li>
+          <li>{{ HTML::link('legal/privacy', 'Privacy') }}</li>
         </ul>
       </div>
       <div class="large-6 columns text-right">
