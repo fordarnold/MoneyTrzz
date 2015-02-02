@@ -8,6 +8,8 @@ body #container-40 {
 	margin: 0 auto;
 }
 
+.cta {font-family: "Droid Sans Mono", sans-serif; font-weight: bold; color: #D42;}
+
 body.app header.minibar .app-name {font-size: 1.7em;}
 body.app header.minibar .app-slogan {font-size: 1em;}
 

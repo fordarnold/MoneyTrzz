@@ -52,7 +52,7 @@
 						<li>Money Reports, filtered by Quarter/Month</li>
 					</ul>
 
-						{{ HTML::link('user/register', 'Try it now !', array('class' => 'button round alert')) }}
+						{{ HTML::link('user/register', 'TRY IT NOW', ['class' => 'cta']) }}
 				</article>
 
 			</div>
