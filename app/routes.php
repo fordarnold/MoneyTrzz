@@ -63,13 +63,22 @@ Route::post('user/delete', 'MasterUserController@postUserCleanup');
 	# a custom dashboard
 	Route::get('home', 'HomeController@getUserDashboard');
 	
-	# user account profile, settings
+	# user account api
 	Route::get('accounts/users/me/profile', 'UserAccountController@getProfile');
 	Route::get('accounts/users/me/settings', 'UserAccountController@getSettings');
 
-	# bank account resource CRUD
+	# bank account api
 	Route::get('accounts/banks/new', 'BankAccountsController@create');
 	Route::resource('accounts/banks', 'BankAccountsController');
+
+	# deposits api
+	Route::resource('deposits', 'DepositsController');
+
+	# withdrawals api
+	Route::resource('withdrawals', 'WithdrawalsController');
+
+	# currency api
+	Route::resource('currencies', 'CurrenciesController');
 
 #});
 
