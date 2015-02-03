@@ -16,7 +16,7 @@ class CreateBankaccountsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->string('name');
+			$table->string('account_no');
 			$table->timestamps();
 		});
 	}

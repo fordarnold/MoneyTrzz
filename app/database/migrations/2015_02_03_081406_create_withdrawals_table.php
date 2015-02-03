@@ -17,7 +17,7 @@ class CreateWithdrawalsTable extends Migration {
 			$table->increments('id');
 			$table->integer('account_id');
 			$table->float('amount');
-			$table->integer('currency_id')
+			$table->integer('currency_id');
 			$table->text('reason');
 			$table->timestamps();
 		});
