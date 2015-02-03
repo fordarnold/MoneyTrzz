@@ -1,11 +1,17 @@
+# Welcome contributors!
+Dear contributors, we would like to welcome you to the Money Trzz project. Your input is highly valued.
+
 ## Way forward
+The following features are to be worked on step by step, with different contributors choosing his/her preferred feature to work on.  Looking forward to seeing that commit tree. :)
 
-The following features are to be worked on step by step, with different contributors choosing his/her preferred feature to work on.  
-Looking forward to seeing that commit tree. :)
+### Git flow / Git branch structure
+It's important to define a **git flow** in the early stages of a software project. The git flow for the Money Trzz app is as follows:
 
-### Feature Milestones
+**Master branch:** This is the production branch. Stable Features are merged into this branch, but only after serious code review by the team leaders/core contributors.  
+**Develop branch:** This is the development branch. Use it for staging features for commit into the 'master' branch. If you feel a feature is stable enough, test it first in the 'develop' branch.  
+**Feature branches:** The feature branches are of the form 'feature-featurename'. Use these branches for developing the different features of the application.
 
-##### App Development
+### Features (milestones)
 
 - User Account management
 	- Master user account setup
@@ -46,7 +52,7 @@ Looking forward to seeing that commit tree. :)
 	- Aggregate withdrawals
 		- filtered by Quarter/Month
 
-##### Marketing 
+### Marketing 
 
 - Online portal registration
 	- Domain name, MoneyTrzz.com
