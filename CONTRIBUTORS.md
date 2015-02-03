@@ -9,11 +9,11 @@ Looking forward to seeing that commit tree. :)
 
 - User Account management
 	- Master user account setup
-	- User account resource CRUD
+	- User account resource CRUD algorithms
 	- Login and Logout of Session
 
 - Bank Account management 
-	- Bank account resource CRUD
+	- Bank account resource CRUD algorithms
 	- master user hasOne Bank
 	- Owner, Personal/Business account
 	- Type definition, Savings/Checking/Current account
@@ -23,8 +23,13 @@ Looking forward to seeing that commit tree. :)
 	- master user hasMany
 
 - Deposits management
+	- Deposit resource CRUD algorithms
 
 - Withdrawals management
+	- Withdrawal resource CRUD algorithms
+
+- Currency management
+	- Currency resource CRUD algorithms
 
 - Savings management
 - Bank charge management
