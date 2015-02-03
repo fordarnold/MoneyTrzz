@@ -1,0 +1,1 @@
+/var/www/m_appz/MoneyTrzz/app/views/withdrawals/index.blade.php

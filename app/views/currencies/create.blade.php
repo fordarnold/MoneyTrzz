@@ -1,0 +1,1 @@
+/var/www/m_appz/MoneyTrzz/app/views/currencies/create.blade.php
