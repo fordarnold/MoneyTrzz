@@ -111,3 +111,12 @@ Route::group(array('prefix' => 'api', 'before' => 'auth.token'), function() {
 # testing api routes before adding to above route group
 Route::resource('users', 'UserController');
 Route::resource('groups', 'UserGroupController');
+
+/**
+ * Protected Routes (Sysadmin)
+ * @author robin hood <fordarnold@gmail.com>
+ */
+
+# link a currency to a country
+Route::get('currency/link/to/country', 'CurrenciesController@linkToCountry');
+Route::post('currency/link/to/country', 'CurrenciesController@linkToCountry');
